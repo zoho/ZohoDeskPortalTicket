@@ -3,7 +3,7 @@
 
 import PackageDescription
 
-let version = "4.2.0"
+let version = "4.4.0"
 let package = Package(
     name: "ZohoDeskPortalTicket",
     platforms: [
@@ -16,17 +16,19 @@ let package = Package(
             targets: ["ZohoDeskPortalTicket", "ZohoDeskPortalTicketPackage"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/zoho/ZohoDeskPortalConfiguration.git", exact: "4.2.0")
+        .package(url: "https://github.com/zoho/ZohoDeskPortalConfiguration.git", exact: "4.4.0"),
+        .package(url: "https://github.com/zoho/ZDLayoutKit.git", exact: "1.0.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        .binaryTarget(name: "ZohoDeskPortalTicket", url: "https://maven.zohodl.com/ZohoDesk/ZohoDeskPortalTicket/\(version)/ZohoDeskPortalTicket.zip", checksum: "bf0d07a1597723bbf246f19a2ef19f95c7aaca1be356b2eb144a522fb38f5b31"),
+        .binaryTarget(name: "ZohoDeskPortalTicket", url: "https://maven.zohodl.com/ZohoDesk/ZohoDeskPortalTicket/\(version)/ZohoDeskPortalTicket.zip", checksum: "4fd7554ee8ae4f85dd79d8e4cec528a44b879fc4eb6f63eb125f1a34620e539e"),
         
         .target(
             name: "ZohoDeskPortalTicketPackage",
             dependencies: [
-                .product(name: "ZohoDeskPortalConfiguration", package: "ZohoDeskPortalConfiguration")
+                .product(name: "ZohoDeskPortalConfiguration", package: "ZohoDeskPortalConfiguration"),
+                .product(name: "ZDLayoutKit", package: "ZDLayoutKit"),
             ]
         )
     ]
